@@ -1,7 +1,7 @@
-#!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from '@aws-cdk/core';
-import { SampleStackStack } from '../lib/sample_stack-stack';
+import * as cdk from '@aws-cdk/core'
+import { StackA } from '../lib/stackA'
+import { StackB } from '../lib/stackB'
 
-const app = new cdk.App();
-new SampleStackStack(app, 'SampleStackStack');
+const app = new cdk.App()
+const { handler } = new StackA(app, 'StackA')
+new StackB(app, 'StackB', { handler })
